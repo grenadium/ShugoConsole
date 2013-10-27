@@ -23,6 +23,7 @@ Compiling
 
 The program can be compiled using QMake or Qt Creator.
 You will need a Platform SDK with ntdll.lib.
+The program was developped with Visual C++ 2012 and should compile with GCC (MinGW)
 
 Generating the MSI installer
 ----------------------------
