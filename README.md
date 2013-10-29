@@ -30,31 +30,5 @@ Generating the MSI installer
 
 An MSI installer can be generated using the WiX Toolset ( http://wixtoolset.org/ ).
 
-Copy the generated executable to install/ShugoConsole
-- ShugoConsole.exe
-
-Then copy files from your Qt installation.
-
-In install/ShugoConsole:
-- bin/icudt51.dll
-- bin/icuin51.dll
-- bin/icuuc51.dll
-- bin/libEGL.dll
-- bin/libGLESv2.dll
-- bin/Qt5Core.dll
-- bin/Qt5Gui.dll
-- bin/Qt5Widgets.dll
-
-In install/ShugoConsole/plugins/platforms:
-- plugins/platforms/qwindows.dll
-
-Ensure any additional DLLs are included in the folder and referenced in ShugoConsole.wxs
-(The included file is configured for Microsoft's Visual C++ 2012 compiler)
-
-    >set PATH=C:\Program Files (x86)\WiW Toolset v3.7\bin;%PATH%
-    >cd PATH\TO\install
-    >candle.exe ShugoConsole.wxs
-    >light.exe ShugoConsole.wixobj
-
-You will also need to tweak the provided WiX script if you wish to generate a 32-bit installer.
-
+There are windows cmd scripts to automate the installer generation in the install subfolder.
+Depending on your installation paths and compilers, you should tweak the scripts.
