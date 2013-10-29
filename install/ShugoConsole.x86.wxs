@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="476B4941-ACD8-405A-A6F8-AC86C590DB7C" Name="Shugo Console (32-bit)" Language="1033" Version="1.0.0.0" Manufacturer="wearecheaters" UpgradeCode="E82A2870-1E15-48AB-A1BC-7B1A513F8349">
+        <Package Description="Shugo Console (32-bit)" Comments="Shugo Console" InstallerVersion="405" Compressed="yes" />
+        <Media Id="1" Cabinet="ShugoConsole.cab" EmbedCab="yes" />
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramFilesFolder" Name="PFiles">
+                <Directory Id="SHUGOCONSOLE" Name="ShugoConsole">
+                	<Directory Id="PLUGINS" Name="plugins">
+                		<Directory Id="PLATFORMS" Name="platforms">
+                			<Component Id="QWINDOWS.DLL" DiskId="1" Guid="1E45131D-AE87-471E-AA96-F6533249036B">
+                        		<File Id="QWINDOWS.DLL" Name="qwindows.dll" Source="ShugoConsole.x86\plugins\platforms\qwindows.dll" />
+                    		</Component>
+                		</Directory>
+                    </Directory>
+                	<Merge Id="VCRedist" SourceFile="C:\Program Files (x86)\Common Files\Merge Modules\Microsoft_VC110_CRT_x86.msm" DiskId="1" Language="0"/>
+                    <Component Id="ICUDT51.DLL" DiskId="1" Guid="C0275231-A5F4-449A-B982-CB87CBEBE7E4">
+                        <File Id="ICUDT51.DLL" Name="icudt51.dll" Source="ShugoConsole.x86\icudt51.dll" />
+                    </Component>
+                    <Component Id="ICUIN51.DLL" DiskId="1" Guid="10D06B7C-C209-436B-96F6-D00D2167D19C">
+                        <File Id="ICUIN51.DLL" Name="icuin51.dll" Source="ShugoConsole.x86\icuin51.dll" />
+                    </Component>
+                    <Component Id="ICUUC51.DLL" DiskId="1" Guid="EA5DFC25-5CA7-4D5B-8562-C1575AC3A8EF">
+                        <File Id="ICUUC51.DLL" Name="icuuc51.dll" Source="ShugoConsole.x86\icuuc51.dll" />
+                    </Component>
+                    <Component Id="LIBEGL.DLL" DiskId="1" Guid="DA4F606D-048C-4822-A001-65CDF2BCB5B3">
+                        <File Id="LIBEGL.DLL" Name="libEGL.dll" Source="ShugoConsole.x86\libEGL.dll" />
+                    </Component>
+                    <Component Id="LIBGLESV2.DLL" DiskId="1" Guid="040D56F7-C45D-45B9-BD79-3D35D7D1071E">
+                        <File Id="LIBGLESV2.DLL" Name="libGLESv2.dll" Source="ShugoConsole.x86\libGLESv2.dll" />
+                    </Component>
+                    <Component Id="QT5CORE.DLL" DiskId="1" Guid="650ABD0B-E4E7-4563-A20D-A2FCE2E120FE">
+                        <File Id="QT5CORE.DLL" Name="Qt5Core.dll" Source="ShugoConsole.x86\Qt5Core.dll" />
+                    </Component>
+                    <Component Id="QT5GUI.DLL" DiskId="1" Guid="3F3DA447-5BCA-4B34-895E-36715217DB41">
+                        <File Id="QT5GUI.DLL" Name="Qt5Gui.dll" Source="ShugoConsole.x86\Qt5Gui.dll" />
+                    </Component>
+                    <Component Id="QT5WIDGETS.DLL" DiskId="1" Guid="C20FCAA6-2F9C-4B72-BB98-554DC1100460">
+                        <File Id="QT5WIDGETS.DLL" Name="Qt5Widgets.dll" Source="ShugoConsole.x86\Qt5Widgets.dll" />
+                    </Component>
+                    <Component Id="QT.CONF" DiskId="1" Guid="94F727D3-2097-4F50-BEA7-07A5BC06F5E5">
+                        <File Id="QT.CONF" Name="qt.conf" Source="ShugoConsole.x86\qt.conf" />
+                    </Component>
+                    <Component Id="SHUGOCONSOLE.EXE" DiskId="1" Guid="F58E63D0-1FB4-4D64-88E4-42B8BD42FF47">
+                        <File Id="SHUGOCONSOLE.EXE" Name="ShugoConsole.exe" Source="ShugoConsole.x86\ShugoConsole.exe">
+                            <Shortcut Id="desktopShortcut" Directory="DesktopFolder" Name="Shugo Console" WorkingDirectory="INSTALLDIR" Advertise="yes" Icon="DesktopIcon.exe" IconIndex="0" />
+                            <Shortcut Id="ExeShortcut" Directory="ProgramMenuDir" Name="Shugo Console" Advertise="yes" Icon="StartMenuIcon.exe" IconIndex="0" />
+                        </File>
+                    </Component>
+                </Directory>
+            </Directory>
+            <Directory Id="DesktopFolder" />
+            <Directory Id="ProgramMenuFolder">
+                <Directory Id="ProgramMenuDir" Name="Shugo Console">
+                    <Component Id="StartMenuShortcuts" Guid="972BD45A-66E5-419E-BCF8-9843A19E145D">
+                        <RemoveFolder Id="ProgramMenuDir" On="uninstall" />
+                        <RegistryValue Root="HKCU" Key="Software\[Manufacturer]\[ProductName]" Type="string" Value="" />
+                        <Shortcut Id="UninstallProduct" Name="Uninstall" Description="Uninstalls Shugo Console" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" />
+                    </Component>
+                </Directory>
+            </Directory>
+        </Directory>
+        <Feature Id="DefaultFeature" Title="Shugo Console" Level="1">
+        	<ComponentRef Id="QWINDOWS.DLL" />
+            <ComponentRef Id="ICUDT51.DLL" />
+            <ComponentRef Id="ICUIN51.DLL" />
+            <ComponentRef Id="ICUUC51.DLL" />
+            <ComponentRef Id="LIBEGL.DLL" />
+            <ComponentRef Id="LIBGLESV2.DLL" />
+            <ComponentRef Id="QT5CORE.DLL" />
+            <ComponentRef Id="QT5GUI.DLL" />
+            <ComponentRef Id="QT5WIDGETS.DLL" />
+            <ComponentRef Id="QT.CONF" />
+            <ComponentRef Id="SHUGOCONSOLE.EXE" />
+            <ComponentRef Id="StartMenuShortcuts" />
+        </Feature>
+        <Feature Id="VCRedist" Title="Visual C++ 2012 Runtime" AllowAdvertise="no" Level="1">
+            <MergeRef Id="VCRedist"/>
+        </Feature>
+        <UI />
+        <UIRef Id="WixUI_Minimal" />
+        <Icon Id="DesktopIcon.exe" SourceFile="ShugoConsole.x86\ShugoConsole.exe" />
+        <Icon Id="StartMenuIcon.exe" SourceFile="ShugoConsole.x86\ShugoConsole.exe" />
+        <WixVariable Id="WixUILicenseRtf" Value="gpl-2.0.rtf" />
+        <WixVariable Id="WixUIBannerBmp" Value="banner.bmp" />
+        <WixVariable Id="WixUIDialogBmp" Value="dialog.bmp" />
+    </Product>
+</Wix>

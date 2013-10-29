@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-    <Product Id="7757771B-6EFE-42BA-B1ED-80B6A5F0D266" Name="Shugo Console" Language="1033" Version="1.0.0.0" Manufacturer="wearecheaters" UpgradeCode="D25B8E29-69A1-4B5C-92BB-43A4035C7A84">
-        <Package Description="Shugo Console" Platform="x64" Comments="Shugo Console" InstallerVersion="405" Compressed="yes" />
+    <Product Id="7757771B-6EFE-42BA-B1ED-80B6A5F0D266" Name="Shugo Console (64-bit)" Language="1033" Version="1.0.0.0" Manufacturer="wearecheaters" UpgradeCode="D25B8E29-69A1-4B5C-92BB-43A4035C7A84">
+        <Package Description="Shugo Console (64-bit)" Platform="x64" Comments="Shugo Console" InstallerVersion="405" Compressed="yes" />
         <Media Id="1" Cabinet="ShugoConsole.cab" EmbedCab="yes" />
         <Directory Id="TARGETDIR" Name="SourceDir">
             <Directory Id="ProgramFiles64Folder" Name="PFiles">
                 <Directory Id="SHUGOCONSOLE" Name="ShugoConsole">
-                	<Directory Id="PLUGINS" Name="plugins">
-                		<Directory Id="PLATFORMS" Name="platforms">
-                			<Component Id="QWINDOWS.DLL" DiskId="1" Guid="3DA791E1-3F07-3F8D-3666-3BE1BD78961E" Win64='yes'>
-                        		<File Id="QWINDOWS.DLL" Name="qwindows.dll" Source="ShugoConsole\plugins\platforms\qwindows.dll" ProcessorArchitecture='x64' />
-                    		</Component>
-                		</Directory>
+                    <Directory Id="PLUGINS" Name="plugins">
+                        <Directory Id="PLATFORMS" Name="platforms">
+                            <Component Id="QWINDOWS.DLL" DiskId="1" Guid="3DA791E1-3F07-3F8D-3666-3BE1BD78961E" Win64='yes'>
+                                <File Id="QWINDOWS.DLL" Name="qwindows.dll" Source="ShugoConsole.x64\plugins\platforms\qwindows.dll" ProcessorArchitecture='x64' />
+                            </Component>
+                        </Directory>
                     </Directory>
-                	<Merge Id="VCRedist" SourceFile="C:\Program Files (x86)\Common Files\Merge Modules\Microsoft_VC110_CRT_x64.msm" DiskId="1" Language="0"/>
+                    <Merge Id="VCRedist" SourceFile="C:\Program Files (x86)\Common Files\Merge Modules\Microsoft_VC110_CRT_x64.msm" DiskId="1" Language="0"/>
                     <Component Id="ICUDT51.DLL" DiskId="1" Guid="3DA791E1-0F07-4F8D-B666-8BE1BD78961E" Win64='yes'>
-                        <File Id="ICUDT51.DLL" Name="icudt51.dll" Source="ShugoConsole\icudt51.dll" ProcessorArchitecture='x64' />
+                        <File Id="ICUDT51.DLL" Name="icudt51.dll" Source="ShugoConsole.x64\icudt51.dll" ProcessorArchitecture='x64' />
                     </Component>
                     <Component Id="ICUIN51.DLL" DiskId="1" Guid="54D60F26-85DA-49E0-B793-12F6BB1341F6" Win64='yes'>
-                        <File Id="ICUIN51.DLL" Name="icuin51.dll" Source="ShugoConsole\icuin51.dll" ProcessorArchitecture='x64' />
+                        <File Id="ICUIN51.DLL" Name="icuin51.dll" Source="ShugoConsole.x64\icuin51.dll" ProcessorArchitecture='x64' />
                     </Component>
                     <Component Id="ICUUC51.DLL" DiskId="1" Guid="31878D6C-3021-4AB2-9FB8-5EEAA1705AC8" Win64='yes'>
-                        <File Id="ICUUC51.DLL" Name="icuuc51.dll" Source="ShugoConsole\icuuc51.dll" ProcessorArchitecture='x64' />
+                        <File Id="ICUUC51.DLL" Name="icuuc51.dll" Source="ShugoConsole.x64\icuuc51.dll" ProcessorArchitecture='x64' />
                     </Component>
                     <Component Id="LIBEGL.DLL" DiskId="1" Guid="30F6748C-2C86-467A-A148-8A87CA27CDBD" Win64='yes'>
-                        <File Id="LIBEGL.DLL" Name="libEGL.dll" Source="ShugoConsole\libEGL.dll" ProcessorArchitecture='x64' />
+                        <File Id="LIBEGL.DLL" Name="libEGL.dll" Source="ShugoConsole.x64\libEGL.dll" ProcessorArchitecture='x64' />
                     </Component>
                     <Component Id="LIBGLESV2.DLL" DiskId="1" Guid="648376BA-2B1B-42F5-931F-1773C2CCD722" Win64='yes'>
-                        <File Id="LIBGLESV2.DLL" Name="libGLESv2.dll" Source="ShugoConsole\libGLESv2.dll" ProcessorArchitecture='x64' />
+                        <File Id="LIBGLESV2.DLL" Name="libGLESv2.dll" Source="ShugoConsole.x64\libGLESv2.dll" ProcessorArchitecture='x64' />
                     </Component>
                     <Component Id="QT5CORE.DLL" DiskId="1" Guid="72889903-02E3-4919-99C4-3F9639DCFE39" Win64='yes'>
-                        <File Id="QT5CORE.DLL" Name="Qt5Core.dll" Source="ShugoConsole\Qt5Core.dll" ProcessorArchitecture='x64' />
+                        <File Id="QT5CORE.DLL" Name="Qt5Core.dll" Source="ShugoConsole.x64\Qt5Core.dll" ProcessorArchitecture='x64' />
                     </Component>
                     <Component Id="QT5GUI.DLL" DiskId="1" Guid="52F1D857-3318-4712-88D0-E0BD000CF6BC" Win64='yes'>
-                        <File Id="QT5GUI.DLL" Name="Qt5Gui.dll" Source="ShugoConsole\Qt5Gui.dll" ProcessorArchitecture='x64' />
+                        <File Id="QT5GUI.DLL" Name="Qt5Gui.dll" Source="ShugoConsole.x64\Qt5Gui.dll" ProcessorArchitecture='x64' />
                     </Component>
                     <Component Id="QT5WIDGETS.DLL" DiskId="1" Guid="98F2A712-C593-4A6C-B3D3-537F813FFAB2" Win64='yes'>
-                        <File Id="QT5WIDGETS.DLL" Name="Qt5Widgets.dll" Source="ShugoConsole\Qt5Widgets.dll" ProcessorArchitecture='x64' />
+                        <File Id="QT5WIDGETS.DLL" Name="Qt5Widgets.dll" Source="ShugoConsole.x64\Qt5Widgets.dll" ProcessorArchitecture='x64' />
                     </Component>
                     <Component Id="QT.CONF" DiskId="1" Guid="38F2A712-3593-3A6C-33D3-337F813FFAB2" Win64='yes'>
-                        <File Id="QT.CONF" Name="qt.conf" Source="ShugoConsole\qt.conf" />
+                        <File Id="QT.CONF" Name="qt.conf" Source="ShugoConsole.x64\qt.conf" />
                     </Component>
                     <Component Id="SHUGOCONSOLE.EXE" DiskId="1" Guid="0E75DA7A-D9D2-453F-B42C-1184154C94D1" Win64='yes'>
-                        <File Id="SHUGOCONSOLE.EXE" Name="ShugoConsole.exe" Source="ShugoConsole\ShugoConsole.exe" ProcessorArchitecture='x64' >
+                        <File Id="SHUGOCONSOLE.EXE" Name="ShugoConsole.exe" Source="ShugoConsole.x64\ShugoConsole.exe" ProcessorArchitecture='x64' >
                             <Shortcut Id="desktopShortcut" Directory="DesktopFolder" Name="Shugo Console" WorkingDirectory="INSTALLDIR" Advertise="yes" Icon="DesktopIcon.exe" IconIndex="0" />
                             <Shortcut Id="ExeShortcut" Directory="ProgramMenuDir" Name="Shugo Console" Advertise="yes" Icon="StartMenuIcon.exe" IconIndex="0" />
                         </File>
@@ -61,7 +61,7 @@
             </Directory>
         </Directory>
         <Feature Id="DefaultFeature" Title="Shugo Console" Level="1">
-        	<ComponentRef Id="QWINDOWS.DLL" />
+            <ComponentRef Id="QWINDOWS.DLL" />
             <ComponentRef Id="ICUDT51.DLL" />
             <ComponentRef Id="ICUIN51.DLL" />
             <ComponentRef Id="ICUUC51.DLL" />
@@ -79,8 +79,8 @@
         </Feature>
         <UI />
         <UIRef Id="WixUI_Minimal" />
-        <Icon Id="DesktopIcon.exe" SourceFile="ShugoConsole\ShugoConsole.exe" />
-        <Icon Id="StartMenuIcon.exe" SourceFile="ShugoConsole\ShugoConsole.exe" />
+        <Icon Id="DesktopIcon.exe" SourceFile="ShugoConsole.x64\ShugoConsole.exe" />
+        <Icon Id="StartMenuIcon.exe" SourceFile="ShugoConsole.x64\ShugoConsole.exe" />
         <WixVariable Id="WixUILicenseRtf" Value="gpl-2.0.rtf" />
         <WixVariable Id="WixUIBannerBmp" Value="banner.bmp" />
         <WixVariable Id="WixUIDialogBmp" Value="dialog.bmp" />
