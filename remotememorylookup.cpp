@@ -5,9 +5,9 @@ RemoteMemoryLookup::RemoteMemoryLookup(int _buffer_size) : buffer(_buffer_size, 
 uint8_t* RemoteMemoryLookup::lookupPage(HANDLE hProcess, MEMORY_BASIC_INFORMATION* mem_info, const MemoryPattern& pattern)
 {
     uint8_t* begin = (uint8_t*)mem_info->BaseAddress;
-    size_t remaining_bytes = mem_info->RegionSize;
-    size_t bytes_read = 0;
-    size_t bytes_to_read = remaining_bytes;
+    SIZE_T remaining_bytes = mem_info->RegionSize;
+    SIZE_T bytes_read = 0;
+    SIZE_T bytes_to_read = remaining_bytes;
 
     if(bytes_to_read > buffer.size())
     {
@@ -18,9 +18,9 @@ uint8_t* RemoteMemoryLookup::lookupPage(HANDLE hProcess, MEMORY_BASIC_INFORMATIO
         if(bytes_read == 0)
             break;
 
-        size_t end = bytes_read - pattern.totalSize();
+        SIZE_T end = bytes_read - pattern.totalSize();
 
-        for(size_t i = 0 ; i < end; i += 16)
+        for(SIZE_T i = 0 ; i < end; i += 16)
         {
             if(pattern.match((BYTE*)(buffer.constData()+i)))
                 return begin+i;
