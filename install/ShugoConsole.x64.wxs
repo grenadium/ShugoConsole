@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-    <Product Id="7757771B-6EFE-42BA-B1ED-80B6A5F0D266" Name="Shugo Console (64-bit)" Language="1033" Version="1.0.1.0" Manufacturer="wearecheaters" UpgradeCode="D25B8E29-69A1-4B5C-92BB-43A4035C7A84">
+    <Product Id="7757771B-6EFE-42BA-B1ED-80B6A5F0D266" Name="Shugo Console (64-bit)" Language="1033" Version="1.1.0.0" Manufacturer="wearecheaters" UpgradeCode="D25B8E29-69A1-4B5C-92BB-43A4035C7A84">
         <Package Description="Shugo Console (64-bit)" Platform="x64" Comments="Shugo Console" InstallerVersion="405" Compressed="yes" />
         <Media Id="1" Cabinet="ShugoConsole.cab" EmbedCab="yes" />
         <Directory Id="TARGETDIR" Name="SourceDir">
