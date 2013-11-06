@@ -60,6 +60,25 @@
       <number>9</number>
      </property>
      <item>
+      <widget class="QLabel" name="helpLabel">
+       <property name="locale">
+        <locale language="French" country="France"/>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Short notice&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Settings values (on the right side) are enforced in the game when the boxes (on the leftside) are checked.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::RichText</enum>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QGroupBox" name="consoleSettingsGroupBox">
        <property name="title">
         <string>Console Settings</string>
