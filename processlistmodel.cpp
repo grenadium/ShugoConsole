@@ -1,4 +1,5 @@
 #include "processlistmodel.h"
+#include <QTranslator>
 
 ProcessListModel::ProcessListModel(QObject *parent) :
     QAbstractListModel(parent)
@@ -60,29 +61,29 @@ QVariant ProcessListModel::data(const QModelIndex &index, int role) const
         switch(pd.state)
         {
         case AionProcessWorker::WAITING:
-            msg = "OK";
+            msg = tr("OK");
             break;
         case AionProcessWorker::INITIALIZING:
-            msg = "Initializing...";
+            msg = tr("Initializing...");
             break;
         case AionProcessWorker::SCANNING_MEMORY:
-            msg = "Scanning memory...";
+            msg = tr("Scanning memory...");
             break;
         case AionProcessWorker::E_PROCESS_IS_64:
-            msg = "Process is 64 bit, cannot open it from a 32-bit ShugoConsole";
+            msg = tr("Process is 64 bit, cannot open it from a 32-bit ShugoConsole");
             break;
         case AionProcessWorker::E_OPEN_PROCESS_FAILED:
-            msg = "Cannot open process. You should run ShugoConsole as an administrator.";
+            msg = tr("Cannot open process. You should run ShugoConsole as an administrator.");
             break;
         case AionProcessWorker::E_READ_ERROR:
-            msg = "Process read error.";
+            msg = tr("Process read error.");
             break;
         case AionProcessWorker::E_WRITE_ERROR:
-            msg = "Process write error";
+            msg = tr("Process write error");
             break;
         }
 
-        msg = QString("Process %1: %2").arg((qulonglong)pd.handle).arg(msg);
+        msg = QString(tr("Process %1: %2")).arg((qulonglong)pd.handle).arg(msg);
 
         return QVariant(msg);
     }
