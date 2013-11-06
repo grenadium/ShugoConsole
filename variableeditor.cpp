@@ -26,7 +26,8 @@ void VariableEditorBase::connectInterface()
 void VariableEditorBase::loadSettings(QSettings& settings)
 {
     _checkBox->setChecked(settings.value(_settingNameCheck, QVariant(false)).toBool());
-    setValue();
+    if(_checkBox->isChecked())
+        setValue();
 }
 
 void VariableEditorBase::saveSettings(QSettings& settings)
