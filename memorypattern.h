@@ -5,20 +5,20 @@
 #include <cstring>
 #include <QByteArray>
 
-class MemoryPattern
+class CVarMemoryPattern
 {
 private:
     size_t offset;
     QByteArray pattern;
 public:
-    MemoryPattern(size_t _offset, const QByteArray& _pattern)
+    CVarMemoryPattern(size_t _offset, const QByteArray& _pattern)
         : offset(_offset), pattern(_pattern)
     {
     }
 
     bool match(const uint8_t *mem) const
     {
-        return memcmp(mem + offset, pattern.constData(), pattern.size()) == 0;
+        return (mem[offset] == 0 || mem[offset] == 1) && (memcmp(mem + offset + 1, pattern.constData(), pattern.size()) == 0);
     }
 
     size_t totalSize() const { return offset + pattern.size(); }

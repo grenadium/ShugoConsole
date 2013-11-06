@@ -2,7 +2,7 @@
 
 RemoteMemoryLookup::RemoteMemoryLookup(int _buffer_size) : buffer(_buffer_size, 0) { }
 
-uint8_t* RemoteMemoryLookup::lookupPage(HANDLE hProcess, MEMORY_BASIC_INFORMATION* mem_info, const MemoryPattern& pattern)
+uint8_t* RemoteMemoryLookup::lookupPage(HANDLE hProcess, MEMORY_BASIC_INFORMATION* mem_info, const CVarMemoryPattern& pattern)
 {
     uint8_t* begin = (uint8_t*)mem_info->BaseAddress;
     SIZE_T remaining_bytes = mem_info->RegionSize;
@@ -46,7 +46,7 @@ uint8_t* RemoteMemoryLookup::lookupPage(HANDLE hProcess, MEMORY_BASIC_INFORMATIO
     return NULL;
 }
 
-uint8_t* RemoteMemoryLookup::addressOfPattern(HANDLE hProcess, const MemoryPattern& pattern)
+uint8_t* RemoteMemoryLookup::addressOfPattern(HANDLE hProcess, const CVarMemoryPattern& pattern)
 {
     const char* read_address = 0;
     MEMORY_BASIC_INFORMATION mem_info = {0};

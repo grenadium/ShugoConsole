@@ -75,8 +75,7 @@ void AionProcessWorker::periodicMemoryScan()
                     break;
                 }
 
-                QByteArray patternArray = QByteArray::fromRawData("\0", 1) + key.toLatin1();
-                MemoryPattern pattern(processIs64 ? CVAR_MEM_NAME_64 - 1 : CVAR_MEM_NAME_32 - 1, patternArray);
+                CVarMemoryPattern pattern(processIs64 ? CVAR_MEM_NAME_64 - 1 : CVAR_MEM_NAME_32 - 1, key.toLatin1());
                 RemoteMemoryLookup remote_lookup;
                 emit stateUpdate(this, SCANNING_MEMORY);
                 uint8_t* address_of_cvar = remote_lookup.addressOfPattern(hProcess, pattern);
