@@ -2,6 +2,7 @@
 #include <QApplication>
 #include <QSharedMemory>
 #include <QMessageBox>
+#include <QTranslator>
 
 int main(int argc, char *argv[])
 {
@@ -9,12 +10,16 @@ int main(int argc, char *argv[])
 
     app.setStyle("Fusion");
 
+    QTranslator translator;
+    translator.load("ShugoConsole." + QLocale::system().name());
+    app.installTranslator(&translator);
+
     /* Single application checking */
 
     QSharedMemory sharedMemory("ShugoConsoleIsBestConsole");
     if(!sharedMemory.create(1) || sharedMemory.error() == QSharedMemory::AlreadyExists)
     {
-        QMessageBox::information(NULL, "ShugoConsole", "An instance of ShugoConsole is already running");
+        QMessageBox::information(NULL, app.tr("ShugoConsole"), app.tr("An instance of ShugoConsole is already running"));
         return 1;
     }
 
