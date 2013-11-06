@@ -9,6 +9,7 @@
 
 #include "aionprocessworker.h"
 #include "processlistmodel.h"
+#include "variableeditor.h"
 
 namespace Ui {
 class ShugoConsoleWidget;
@@ -25,34 +26,31 @@ public:
 public slots:
     void onScanTimer();
     void onStateUpdate(AionProcessWorker*, AionProcessWorker::State);
-
-    void onFovSpinBoxValueChanged(double);
-    void onFovCheckStateChanged(int);
-    void onConsoleCheckStateChanged(int);
-
     void onTrayIconActivated(QSystemTrayIcon::ActivationReason);
-    
-private:
-    void loadConfig();
-    void saveConfig();
 
-    void setVarValue(const QString&, const QVariant&);
-    void removeVar(const QString&);
+    void varEnable(QString, QVariant);
+    void varDisable(QString);
+
+    void saveSettings();
+private:
+
     void updateProcessesVars();
 
     Ui::ShugoConsoleWidget *ui;
 
-    QTimer* timer;
+    QTimer* _timer;
 
-    QAction *showAction;
-    QAction *exitAction;
+    QAction *_showAction;
+    QAction *_exitAction;
 
-    QSystemTrayIcon* trayIcon;
+    QSystemTrayIcon* _trayIcon;
 
-    ProcessListModel* processListModel;
+    ProcessListModel* _processListModel;
 
-    QHash<HANDLE, AionProcessWorker*> workersHash;
-    QHash<QString,QVariant> consoleVars;
+    QHash<HANDLE, AionProcessWorker*> _workersHash;
+    QHash<QString,QVariant> _consoleVars;
+
+    QList<VariableEditorBase*> _editors;
 
 };
 
