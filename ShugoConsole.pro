@@ -6,6 +6,8 @@ TEMPLATE = app
 
 win32:LIBS += ntdll.lib
 
+# DEFINES += ENABLE_CONSOLE_ACTIVATION
+
 SOURCES += main.cpp\
         shugoconsolewidget.cpp \
     aionprocessworker.cpp \
@@ -14,7 +16,8 @@ SOURCES += main.cpp\
     memorypattern.cpp \
     crycvar.cpp \
     processutils.cpp \
-    processlistmodel.cpp
+    processlistmodel.cpp \
+    variableeditor.cpp
 
 HEADERS  += shugoconsolewidget.h \
     ntdll.h \
@@ -24,7 +27,8 @@ HEADERS  += shugoconsolewidget.h \
     memorypattern.h \
     crycvar.h \
     processutils.h \
-    processlistmodel.h
+    processlistmodel.h \
+    variableeditor.h
 
 FORMS    += shugoconsolewidget.ui
 
