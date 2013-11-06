@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/ShugoConsole">
         <file>shugo.png</file>
+        <file>banner.png</file>
     </qresource>
 </RCC>
