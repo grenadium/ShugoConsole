@@ -45,7 +45,7 @@ ShugoConsoleWidget::ShugoConsoleWidget(QWidget *parent) :
     _editors.append(new DoubleSpinVariableEditor(this, "g_minFov", "EnableFOV", "FOV", ui->fovCheck, ui->fovSpinBox, 90.0, 60.0, 170.0));
 
     _editors.append(new BoolComboVariableEditor(this, "g_chatlog", "g_chatlog_monitor", "g_chatlog_value", ui->chatLogCheck, ui->chatLogCombo, true));
-    _editors.append(new DoubleSpinVariableEditor(this, "g_camMax", "g_camMax_monitor", "g_camMax_value", ui->cammaxCheck, ui->cammaxSpinBox, 90.0, 60.0, 170.0));
+    _editors.append(new DoubleSpinVariableEditor(this, "g_camMax", "g_camMax_monitor", "g_camMax_value", ui->cammaxCheck, ui->cammaxSpinBox, 28.0, 5.0, 50.0));
     _editors.append(new BoolComboVariableEditor(this, "d3d9_TripleBuffering", "d3d9_TripleBuffering_monitor", "d3d9_TripleBuffering_value", ui->tripleBufferingCheck, ui->tripleBufferingCombo, true));
     _editors.append(new BoolComboVariableEditor(this, "g_maxfps", "g_maxfps_monitor", "g_maxfps_value", ui->maxfpsCheck, ui->maxfpsCombo, false, 64, 0));
     _editors.append(new ValueComboVariableEditor(this, "r_Texture_Anisotropic_Level", "r_Texture_Anisotropic_Level_monitor", "r_Texture_Anisotropic_Level_value", ui->anisotropicCheck, ui->anisotropicCombo));
