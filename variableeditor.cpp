@@ -115,17 +115,24 @@ void DoubleSpinVariableEditor::onDoubleSpinBoxValueChanged(double)
  *        BoolComboVariableEditor
  */
 
+#define COMBO_INDEX_TRUE 0
+#define COMBO_INDEX_FALSE 1
+
 BoolComboVariableEditor::BoolComboVariableEditor(QObject* parent,
                  const QString& variableName,
                  const QString& settingNameCheck,
                  const QString& settingNameValue,
                  QCheckBox* checkBox,
                  QComboBox* comboBox,
-                 bool defaultValue)
+                 bool defaultValue,
+                 QVariant valueTrue,
+                 QVariant valueFalse)
 
     : VariableEditorBase(parent, variableName, settingNameCheck, settingNameValue, checkBox),
       _comboBox(comboBox),
-      _defaultValue(defaultValue)
+      _defaultValue(defaultValue),
+      _valueTrue(valueTrue),
+      _valueFalse(valueFalse)
 {
 }
 
@@ -139,22 +146,22 @@ void BoolComboVariableEditor::loadSettings(QSettings& settings)
 {
     QVariant vValue = settings.value(_settingNameValue, _defaultValue);
 
-    _comboBox->setCurrentIndex(vValue.toBool() ? 0 : 1);
+    _comboBox->setCurrentIndex(vValue.toBool() ? COMBO_INDEX_TRUE : COMBO_INDEX_FALSE);
 
     VariableEditorBase::loadSettings(settings);
 }
 
 void BoolComboVariableEditor::saveSettings(QSettings& settings)
 {
-    bool value = _comboBox->currentIndex() == 0;
+    bool value = _comboBox->currentIndex() == COMBO_INDEX_TRUE;
     settings.setValue(_settingNameValue, value);
     VariableEditorBase::saveSettings(settings);
 }
 
 void BoolComboVariableEditor::setValue()
 {
-    bool value = _comboBox->currentIndex() == 0;
-    emit varEnable(_variableName, value ? 1 : 0);
+    bool value = _comboBox->currentIndex() == COMBO_INDEX_TRUE;
+    emit varEnable(_variableName, value ? _valueTrue : _valueFalse);
 }
 
 

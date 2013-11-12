@@ -78,7 +78,9 @@ public:
                      const QString& settingNameValue,
                      QCheckBox* checkBox,
                      QComboBox* comboBox,
-                     bool defaultValue = true);
+                     bool defaultValue = true,
+                     QVariant valueTrue = QVariant(1),
+                     QVariant valueFalse = QVariant(0));
 
     virtual void connectInterface();
     virtual void loadSettings(QSettings& settings);
@@ -91,6 +93,8 @@ public slots:
 protected:
     QComboBox* _comboBox;
     bool _defaultValue;
+    QVariant _valueTrue;
+    QVariant _valueFalse;
 };
 
 class ValueComboVariableEditor : public VariableEditorBase
