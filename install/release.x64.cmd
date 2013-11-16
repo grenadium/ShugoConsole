@@ -3,7 +3,7 @@
 REM -- Environment variables definitions
 
 set VCVARSALL=C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\vcvarsall.bat
-set QT64=C:\Qt\Qt5.1.1\5.1.1\msvc2012_64
+set QT64=C:\Qt\Qt5.1.1_64_msvc2012\5.1.1\msvc2012_64
 set WIXTOOLSET=C:\Program Files (x86)\WiX Toolset v3.7\bin
 
 set BUILD64=build.x64
