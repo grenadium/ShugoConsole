@@ -1,14 +1,18 @@
 ShugoConsole
 ============
 
-ShugoConsole allows the usage of the CryEngine's console in Aion.
+ShugoConsole allows the modification of some variables of the CryEngine's console in Aion.
 NCSoft disabled access to the CryEngine's console in the western release of Aion.
 Because it was the only way to modify some basic graphic parameters like the field of view
-(which is necessary for large screens of multi-screen setup, i developped this program)
+(which is necessary for large screens of multi-screen setup), i developped this program.
 
-This utility can:
-- enable the in-game console.
-- automatically set the field of view.
+This utility gives access to :
+- Field of view
+- Maximum camera distance
+- Chat log
+- FPS limit
+- Triple buffering
+- Anisotropic filtering
 
 Compatibility
 -------------
@@ -23,7 +27,7 @@ Compiling
 
 The program can be compiled using QMake or Qt Creator.
 You will need a Platform SDK with ntdll.lib.
-The program was developped with Visual C++ 2012 and should compile with GCC (MinGW)
+The program was developped with Visual C++ 2012 and should compile with GCC (MinGW) with minor tweaks.
 
 Generating the MSI installer
 ----------------------------
@@ -31,4 +35,4 @@ Generating the MSI installer
 An MSI installer can be generated using the WiX Toolset ( http://wixtoolset.org/ ).
 
 There are windows cmd scripts to automate the installer generation in the install subfolder.
-Depending on your installation paths and compilers, you should tweak the scripts.
+Depending on your Qt installation paths and compilers, you should tweak the scripts.
