@@ -17,7 +17,8 @@ SOURCES += main.cpp\
     crycvar.cpp \
     processutils.cpp \
     processlistmodel.cpp \
-    variableeditor.cpp
+    variableeditor.cpp \
+    wintaskscheduler.cpp
 
 HEADERS  += shugoconsolewidget.h \
     ntdll.h \
@@ -28,7 +29,8 @@ HEADERS  += shugoconsolewidget.h \
     crycvar.h \
     processutils.h \
     processlistmodel.h \
-    variableeditor.h
+    variableeditor.h \
+    wintaskscheduler.h
 
 FORMS    += shugoconsolewidget.ui
 

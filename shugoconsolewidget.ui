@@ -81,6 +81,13 @@
      <item>
       <layout class="QHBoxLayout" name="defaultsLayout">
        <item>
+        <widget class="QCheckBox" name="runOnStartupCheck">
+         <property name="text">
+          <string>Run on Startup</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="defaultsSpacer">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>

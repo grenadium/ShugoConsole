@@ -1,5 +1,6 @@
 #include "shugoconsolewidget.h"
 #include "ui_shugoconsolewidget.h"
+#include "wintaskscheduler.h"
 
 #include <QMenu>
 #include <QList>
@@ -62,6 +63,8 @@ ShugoConsoleWidget::ShugoConsoleWidget(QWidget *parent) :
     }
 
     connect(ui->resetDefaultsButton, &QPushButton::clicked, this, &ShugoConsoleWidget::resetDefaults);
+    ui->runOnStartupCheck->setChecked(WinTaskScheduler::isTaskInstalled("ShugoConsole"));
+    connect(ui->runOnStartupCheck, &QCheckBox::stateChanged, this, &ShugoConsoleWidget::setRunOnStartup);
 
     _timer = new QTimer(this);
     connect(_timer, &QTimer::timeout, this, &ShugoConsoleWidget::onScanTimer);
@@ -121,6 +124,19 @@ void ShugoConsoleWidget::onTrayIconActivated(QSystemTrayIcon::ActivationReason r
 {
     if(reason == QSystemTrayIcon::DoubleClick)
         show();
+}
+
+void ShugoConsoleWidget::setRunOnStartup(int checked)
+{
+    if(checked)
+    {
+        WinTaskScheduler::deleteTask("ShugoConsole");
+        WinTaskScheduler::createStartupTask("ShugoConsole", QCoreApplication::applicationFilePath());
+    }
+    else
+    {
+        WinTaskScheduler::deleteTask("ShugoConsole");
+    }
 }
 
 void ShugoConsoleWidget::resetDefaults(bool)
