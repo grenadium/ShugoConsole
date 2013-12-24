@@ -28,6 +28,8 @@ public slots:
     void onStateUpdate(AionProcessWorker*, AionProcessWorker::State);
     void onTrayIconActivated(QSystemTrayIcon::ActivationReason);
 
+    void resetDefaults(bool);
+
     void varEnable(QString, QVariant);
     void varDisable(QString);
 

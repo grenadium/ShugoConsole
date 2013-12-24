@@ -21,6 +21,7 @@ public:
     virtual void saveSettings(QSettings& settings);
 
     virtual void setValue() = 0;
+    virtual void resetDefaultValue() = 0;
 signals:
     void settingsUpdated();
     void varEnable(QString name, QVariant value);
@@ -58,6 +59,8 @@ public:
     virtual void saveSettings(QSettings& settings);
     virtual void setValue();
 
+    virtual void resetDefaultValue();
+
 public slots:
     void onDoubleSpinBoxValueChanged(double);
 
@@ -87,6 +90,8 @@ public:
     virtual void saveSettings(QSettings& settings);
     virtual void setValue();
 
+    virtual void resetDefaultValue();
+
 public slots:
     void onComboBoxCurrentIndexChanged(int);
 
@@ -113,6 +118,8 @@ public:
     virtual void loadSettings(QSettings& settings);
     virtual void saveSettings(QSettings& settings);
     virtual void setValue();
+
+    virtual void resetDefaultValue();
 
 public slots:
     void onComboBoxCurrentIndexChanged(int);

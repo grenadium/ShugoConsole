@@ -61,6 +61,8 @@ ShugoConsoleWidget::ShugoConsoleWidget(QWidget *parent) :
         v->connectInterface();
     }
 
+    connect(ui->resetDefaultsButton, &QPushButton::clicked, this, &ShugoConsoleWidget::resetDefaults);
+
     _timer = new QTimer(this);
     connect(_timer, &QTimer::timeout, this, &ShugoConsoleWidget::onScanTimer);
     _timer->setInterval(1000);
@@ -119,6 +121,14 @@ void ShugoConsoleWidget::onTrayIconActivated(QSystemTrayIcon::ActivationReason r
 {
     if(reason == QSystemTrayIcon::DoubleClick)
         show();
+}
+
+void ShugoConsoleWidget::resetDefaults(bool)
+{
+    foreach(VariableEditorBase* v, _editors)
+    {
+       v->resetDefaultValue();
+    }
 }
 
 void ShugoConsoleWidget::onScanTimer()

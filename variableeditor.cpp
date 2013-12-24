@@ -106,6 +106,13 @@ void DoubleSpinVariableEditor::setValue()
     emit varEnable(_variableName, _doubleSpinBox->value());
 }
 
+void DoubleSpinVariableEditor::resetDefaultValue()
+{
+    _checkBox->setChecked(false);
+    _doubleSpinBox->setValue(_defaultValue);
+    updateVar();
+}
+
 void DoubleSpinVariableEditor::onDoubleSpinBoxValueChanged(double)
 {
     updateVar();
@@ -162,6 +169,13 @@ void BoolComboVariableEditor::setValue()
 {
     bool value = _comboBox->currentIndex() == COMBO_INDEX_TRUE;
     emit varEnable(_variableName, value ? _valueTrue : _valueFalse);
+}
+
+void BoolComboVariableEditor::resetDefaultValue()
+{
+    _checkBox->setChecked(false);
+    _comboBox->setCurrentIndex(_defaultValue ? COMBO_INDEX_TRUE : COMBO_INDEX_FALSE);
+    updateVar();
 }
 
 
@@ -222,6 +236,13 @@ void ValueComboVariableEditor::setValue()
 {
     double value = _comboBox->currentText().toDouble();
     emit varEnable(_variableName, value);
+}
+
+void ValueComboVariableEditor::resetDefaultValue()
+{
+   _checkBox->setChecked(false);
+   _comboBox->setCurrentIndex(_defaultValueIndex);
+   updateVar();
 }
 
 void ValueComboVariableEditor::onComboBoxCurrentIndexChanged(int)
