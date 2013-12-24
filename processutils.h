@@ -7,6 +7,6 @@
 #define WINDOWS_LEAN_AND_MEAN
 #include <windows.h>
 
-QList<HANDLE> findProcessHandleByImageName(const QString& process_name);
+QList<HANDLE> findProcessHandleByImageName(const QString& process_names);
 
 #endif // PROCESSUTILS_H

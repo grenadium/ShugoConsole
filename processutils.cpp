@@ -1,8 +1,11 @@
 #include "ntdll.h"
 #include "processutils.h"
 
-QList<HANDLE> findProcessHandleByImageName(const QString& process_name)
+#include <QStringList>
+
+QList<HANDLE> findProcessHandleByImageName(const QString& process_names)
 {
+    QStringList names = process_names.split(';');
     QByteArray buffer(64*1024, 0);
 
     LONG result;
@@ -22,7 +25,7 @@ QList<HANDLE> findProcessHandleByImageName(const QString& process_name)
 
     while(pi != NULL)
     {
-        if(process_name.toUpper() == QString::fromUtf16((const ushort*)pi->ProcessName.Buffer).toUpper())
+        if(names.contains(QString::fromUtf16((const ushort*)pi->ProcessName.Buffer), Qt::CaseInsensitive))
         {
             lst.append(pi->ProcessId);
         }

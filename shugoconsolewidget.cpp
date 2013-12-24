@@ -134,7 +134,7 @@ void ShugoConsoleWidget::resetDefaults(bool)
 void ShugoConsoleWidget::onScanTimer()
 {
 
-    QList<HANDLE> sys_aion_process_list = findProcessHandleByImageName("aion.bin");
+    QList<HANDLE> sys_aion_process_list = findProcessHandleByImageName("aion.bin;aion.exe;aion.bin.exe");
     QList<HANDLE> current_process_list = _workersHash.keys();
 
     foreach(HANDLE h, current_process_list)
