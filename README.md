@@ -27,21 +27,21 @@ Compiling
 
 You will need a recent Qt version (5.x) and a compiler with C++11 support.
 
-Compiling with Visual C++
--------------------------
+Visual C++
+----------
 
 Tested with Visual C++ 2013.
 If you're using the Express edition of Visual Studio, you may need a Windows Platform SDK with ntdll.lib.
 
-Comoiling with MinGW
---------------------
+MinGW
+-----
 
 Tested with MinGW 4.8 (included in the Qt 5.2 installer from Digia)
 
 Generating the MSI installer
 ----------------------------
 
-An MSI installer can be generated using the WiX Toolset ( http://wixtoolset.org/ ).
+A MSI installer can be generated using the WiX Toolset ( http://wixtoolset.org/ ).
 
 There are windows cmd scripts to automate the installer generation in the install subfolder.
 Depending on your Qt installation paths and compilers, you should tweak the scripts. 
