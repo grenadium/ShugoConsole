@@ -1,2 +1,3 @@
-IDI_ICON1		ICON		DISCARDABLE	"ShugoConsole.ico"
-
+#include <windows.h>
+IDI_ICON1                           ICON        DISCARDABLE "ShugoConsole.ico"
+CREATEPROCESS_MANIFEST_RESOURCE_ID  RT_MANIFEST             "ShugoConsole.exe.manifest"

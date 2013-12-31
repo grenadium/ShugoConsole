@@ -4,7 +4,17 @@ CONFIG   += windows resources
 TARGET = ShugoConsole
 TEMPLATE = app
 
-win32:LIBS += ntdll.lib
+# Disable automatic manifest generation
+CONFIG -= embed_manifest_exe
+
+win32-g++ {
+    LIBS += -lntdll
+    QMAKE_CXXFLAGS += -std=c++11
+}
+
+win32-msvc* {
+    LIBS += ntdll.lib
+}
 
 # DEFINES += ENABLE_CONSOLE_ACTIVATION
 
@@ -38,5 +48,7 @@ RESOURCES += ShugoConsole.qrc
 
 RC_FILE += ShugoConsole.rc
 
-QMAKE_LFLAGS += /MANIFESTUAC:\"level=\'requireAdministrator\' uiAccess=\'false\'\"
+OTHER_FILES += \
+    ShugoConsole.rc \
+    ShugoConsole.exe.manifest
 
